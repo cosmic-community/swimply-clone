@@ -45,6 +45,14 @@ export default function TestimonialCarousel() {
     )
   }
 
+  // Get current testimonial with safety check
+  const currentTestimonial = testimonials[currentIndex]
+
+  // Don't render if no testimonial is found
+  if (!currentTestimonial) {
+    return null
+  }
+
   return (
     <section className="py-16 bg-gray-50">
       <div className="container-custom">
@@ -64,7 +72,7 @@ export default function TestimonialCarousel() {
                 <Star
                   key={i}
                   className={`w-6 h-6 ${
-                    i < testimonials[currentIndex].rating
+                    i < currentTestimonial.rating
                       ? 'text-yellow-400 fill-current'
                       : 'text-gray-300'
                   }`}
@@ -73,21 +81,21 @@ export default function TestimonialCarousel() {
             </div>
 
             <blockquote className="text-xl md:text-2xl text-gray-900 text-center mb-8 leading-relaxed">
-              "{testimonials[currentIndex].text}"
+              "{currentTestimonial.text}"
             </blockquote>
 
             <div className="flex items-center justify-center space-x-4">
               <img
-                src={testimonials[currentIndex].image}
-                alt={testimonials[currentIndex].name}
+                src={currentTestimonial.image}
+                alt={currentTestimonial.name}
                 className="w-16 h-16 rounded-full object-cover"
               />
               <div className="text-center">
                 <div className="font-semibold text-gray-900">
-                  {testimonials[currentIndex].name}
+                  {currentTestimonial.name}
                 </div>
                 <div className="text-gray-600">
-                  {testimonials[currentIndex].location}
+                  {currentTestimonial.location}
                 </div>
               </div>
             </div>
