@@ -7,6 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        border: '#E5E7EB', // Adding the missing border color
         primary: {
           DEFAULT: '#4FABDD',
           dark: '#3A8AC7',
