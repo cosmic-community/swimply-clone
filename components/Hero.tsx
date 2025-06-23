@@ -67,7 +67,7 @@ export default function Hero({ locations }: HeroProps) {
           }}
         />
         
-        {/* Video element - use fallback if video doesn't exist */}
+        {/* Video element - using the specified video URL */}
         {!videoError && (
           <video
             ref={videoRef}
@@ -81,13 +81,13 @@ export default function Hero({ locations }: HeroProps) {
             preload="auto"
             poster="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1920&h=1080&fit=crop&auto=format,compress"
           >
-            <source src="/videos/outdoor-activities.mp4" type="video/mp4" />
+            <source src="https://swimply-static.s3.us-east-1.amazonaws.com/hero/v2/desktop-pool.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         )}
         
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/40 z-10" />
+        <div className="absolute inset-0 bg-black/30 z-10" />
       </div>
 
       {/* Content */}
