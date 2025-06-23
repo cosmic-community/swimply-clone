@@ -54,9 +54,9 @@ export default function Hero({ locations }: HeroProps) {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900">
-      {/* Video Background */}
-      <div className="absolute inset-0 w-full h-full z-0">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900 -mt-20 pt-20">
+      {/* Video Background - moved up to hide black bar */}
+      <div className="absolute inset-0 w-full h-full z-0 -top-10">
         {/* Fallback background image - only show if video fails or hasn't loaded */}
         <div 
           className={`absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat transition-opacity duration-500 ${
@@ -67,7 +67,7 @@ export default function Hero({ locations }: HeroProps) {
           }}
         />
         
-        {/* Video element - using the specified video URL */}
+        {/* Video element - positioned higher to hide black bar */}
         {!videoError && (
           <video
             ref={videoRef}
@@ -75,7 +75,7 @@ export default function Hero({ locations }: HeroProps) {
             muted
             loop
             playsInline
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+            className={`absolute w-full h-[110%] object-cover transition-opacity duration-500 -top-5 ${
               videoLoaded && !videoError ? 'opacity-100' : 'opacity-0'
             }`}
             preload="auto"
@@ -87,38 +87,47 @@ export default function Hero({ locations }: HeroProps) {
         )}
         
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/30 z-10" />
+        <div className="absolute inset-0 bg-black/40 z-10" />
       </div>
 
       {/* Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Hero Title */}
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-          Rent private{' '}
-          <span className="text-blue-400">Pools</span>
-          , by the hour.
-        </h1>
-
-        {/* Stats */}
-        <div className="flex items-center justify-center flex-wrap gap-2 mb-12 text-white text-lg">
-          <span>Over 4 million</span>
-          <div className="flex">
-            <span>⭐⭐⭐⭐⭐</span>
-          </div>
-          <span>experiences hosted by 15,000 hosts and counting!</span>
-          <span className="text-red-400">❤️</span>
+      <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Hero Title - Updated styling */}
+        <div className="mb-8">
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold text-white mb-4 leading-tight tracking-tight">
+            Rent private{' '}
+            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              Pools
+            </span>
+            <br />
+            <span className="text-4xl sm:text-5xl md:text-6xl">by the hour.</span>
+          </h1>
         </div>
 
-        {/* Search Form */}
-        <div className="max-w-4xl mx-auto">
-          <form onSubmit={handleSearch} className="bg-white rounded-2xl p-6 shadow-2xl">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Category</label>
+        {/* Stats - Updated layout */}
+        <div className="mb-12">
+          <div className="inline-flex items-center justify-center flex-wrap gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 text-white text-lg font-medium">
+            <span>Over 4 million</span>
+            <div className="flex text-yellow-400">
+              <span>⭐⭐⭐⭐⭐</span>
+            </div>
+            <span>experiences</span>
+          </div>
+          <p className="text-white/90 text-lg mt-3 font-medium">
+            hosted by 15,000+ verified hosts and counting! <span className="text-red-400">❤️</span>
+          </p>
+        </div>
+
+        {/* Search Form - Updated design */}
+        <div className="max-w-5xl mx-auto">
+          <form onSubmit={handleSearch} className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/20">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+              <div className="space-y-2">
+                <label className="block text-sm font-semibold text-gray-800 uppercase tracking-wide">Category</label>
                 <select
                   value={searchData.category}
                   onChange={(e) => setSearchData(prev => ({ ...prev, category: e.target.value }))}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-800 font-medium bg-white"
                 >
                   <option value="pools">🏊 Pools</option>
                   <option value="tennis">🎾 Tennis Courts</option>
@@ -127,41 +136,41 @@ export default function Hero({ locations }: HeroProps) {
                 </select>
               </div>
               
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Location</label>
+              <div className="space-y-2">
+                <label className="block text-sm font-semibold text-gray-800 uppercase tracking-wide">Location</label>
                 <div className="relative">
-                  <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <MapPin className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 w-5 h-5" />
                   <input
                     type="text"
                     value={searchData.location}
                     onChange={(e) => setSearchData(prev => ({ ...prev, location: e.target.value }))}
                     placeholder="Enter city or zip"
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-800 font-medium bg-white"
                   />
                 </div>
               </div>
               
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Date</label>
+              <div className="space-y-2">
+                <label className="block text-sm font-semibold text-gray-800 uppercase tracking-wide">Date</label>
                 <div className="relative">
-                  <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <Calendar className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 w-5 h-5" />
                   <input
                     type="date"
                     value={searchData.date}
                     onChange={(e) => setSearchData(prev => ({ ...prev, date: e.target.value }))}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-800 font-medium bg-white"
                   />
                 </div>
               </div>
               
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Guests</label>
+              <div className="space-y-2">
+                <label className="block text-sm font-semibold text-gray-800 uppercase tracking-wide">Guests</label>
                 <div className="relative">
-                  <Users className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <Users className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 w-5 h-5" />
                   <select
                     value={searchData.guests}
                     onChange={(e) => setSearchData(prev => ({ ...prev, guests: e.target.value }))}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-800 font-medium bg-white"
                   >
                     <option value="">Any</option>
                     <option value="1">1 guest</option>
@@ -175,9 +184,9 @@ export default function Hero({ locations }: HeroProps) {
             
             <button
               type="submit"
-              className="w-full btn btn-primary py-4 text-lg font-semibold"
+              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-5 px-8 rounded-xl text-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center"
             >
-              <Search className="w-5 h-5 mr-2" />
+              <Search className="w-6 h-6 mr-3" />
               Search Amazing Venues
             </button>
           </form>
