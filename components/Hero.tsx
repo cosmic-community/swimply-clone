@@ -28,29 +28,34 @@ export default function Hero({ locations }: HeroProps) {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900">
       {/* Video Background */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 w-full h-full">
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-full object-cover"
-          preload="metadata"
+          className="absolute inset-0 w-full h-full object-cover"
+          preload="auto"
+          poster="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1920&h=1080&fit=crop&auto=format,compress"
         >
           <source src="/videos/outdoor-activities.mp4" type="video/mp4" />
-          <img
-            src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1920&h=1080&fit=crop&auto=format,compress"
-            alt="People enjoying outdoor activities"
-            className="w-full h-full object-cover"
-          />
+          <source src="/videos/hero-background.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-black/40"></div>
+        {/* Fallback background image */}
+        <div 
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1920&h=1080&fit=crop&auto=format,compress')`
+          }}
+        ></div>
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/40 z-10"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Hero Title */}
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
           Rent private{' '}
