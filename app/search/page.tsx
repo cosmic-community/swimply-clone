@@ -14,6 +14,61 @@ export default function SearchPage() {
   const [showFilters, setShowFilters] = useState(false)
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
 
+  // Mock data for SearchFilters props
+  const categories = [
+    { id: '1', title: 'Swimming Pools', slug: 'swimming-pools' },
+    { id: '2', title: 'Tennis Courts', slug: 'tennis-courts' },
+    { id: '3', title: 'Basketball Courts', slug: 'basketball-courts' },
+    { id: '4', title: 'Hot Tubs', slug: 'hot-tubs' }
+  ]
+
+  const locations = [
+    { id: '1', title: 'Los Angeles', slug: 'los-angeles' },
+    { id: '2', title: 'Miami', slug: 'miami' },
+    { id: '3', title: 'New York', slug: 'new-york' },
+    { id: '4', title: 'Austin', slug: 'austin' }
+  ]
+
+  const [currentFilters, setCurrentFilters] = useState({
+    category: '',
+    location: '',
+    priceRange: [0, 1000],
+    amenities: [] as string[],
+    rating: 0
+  })
+
+  // Mock data for ListingGrid props
+  const listings = [
+    {
+      id: '1',
+      title: 'Luxury Pool Villa',
+      slug: 'luxury-pool-villa',
+      metadata: {
+        price: 150,
+        location: 'Los Angeles, CA',
+        rating: 4.8,
+        reviews: 124,
+        image: { imgix_url: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5' },
+        amenities: ['Pool', 'Hot Tub', 'WiFi'],
+        capacity: 8
+      }
+    },
+    {
+      id: '2',
+      title: 'Modern Tennis Court',
+      slug: 'modern-tennis-court',
+      metadata: {
+        price: 75,
+        location: 'Miami, FL',
+        rating: 4.6,
+        reviews: 89,
+        image: { imgix_url: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256' },
+        amenities: ['Tennis Court', 'Parking', 'Lighting'],
+        capacity: 4
+      }
+    }
+  ]
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -95,7 +150,12 @@ export default function SearchPage() {
                 </div>
 
                 <div className={`${showFilters ? 'block' : 'hidden lg:block'}`}>
-                  <SearchFilters />
+                  <SearchFilters 
+                    categories={categories}
+                    locations={locations}
+                    currentFilters={currentFilters}
+                    onFiltersChange={setCurrentFilters}
+                  />
                 </div>
               </div>
             </div>
@@ -136,7 +196,7 @@ export default function SearchPage() {
               </div>
 
               {/* Listings Grid */}
-              <ListingGrid />
+              <ListingGrid listings={listings} />
 
               {/* Load More */}
               <div className="text-center mt-12">
