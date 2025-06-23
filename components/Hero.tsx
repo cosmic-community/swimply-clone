@@ -75,9 +75,15 @@ export default function Hero({ locations }: HeroProps) {
             muted
             loop
             playsInline
-            className={`absolute w-full h-full object-cover transition-opacity duration-500 ${
+            className={`absolute inset-0 w-full h-full object-cover object-center min-w-full min-h-full transition-opacity duration-500 ${
               videoLoaded && !videoError ? 'opacity-100' : 'opacity-0'
             }`}
+            style={{
+              width: '100vw',
+              height: '100vh',
+              objectFit: 'cover',
+              objectPosition: 'center center'
+            }}
             preload="auto"
             poster="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1920&h=1080&fit=crop&auto=format,compress"
           >
@@ -189,7 +195,7 @@ export default function Hero({ locations }: HeroProps) {
               <Search className="w-6 h-6 mr-3" />
               Find a pool
             </button>
-          </form>
+            </form>
         </div>
       </div>
     </section>
