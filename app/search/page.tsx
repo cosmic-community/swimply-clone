@@ -6,6 +6,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ListingGrid from '@/components/ListingGrid'
 import SearchFilters from '@/components/SearchFilters'
+import { Category, Location, Listing } from '@/types'
 
 export default function SearchPage() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -14,19 +15,83 @@ export default function SearchPage() {
   const [showFilters, setShowFilters] = useState(false)
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
 
-  // Mock data for SearchFilters props
-  const categories = [
-    { id: '1', title: 'Swimming Pools', slug: 'swimming-pools' },
-    { id: '2', title: 'Tennis Courts', slug: 'tennis-courts' },
-    { id: '3', title: 'Basketball Courts', slug: 'basketball-courts' },
-    { id: '4', title: 'Hot Tubs', slug: 'hot-tubs' }
+  // Mock data for SearchFilters props - properly typed
+  const categories: Category[] = [
+    { 
+      id: '1', 
+      title: 'Swimming Pools', 
+      slug: 'swimming-pools',
+      type_slug: 'categories',
+      metadata: { name: 'Swimming Pools', description: 'Private pools for swimming and relaxation' },
+      created_at: '2024-01-01T00:00:00Z',
+      modified_at: '2024-01-01T00:00:00Z'
+    },
+    { 
+      id: '2', 
+      title: 'Tennis Courts', 
+      slug: 'tennis-courts',
+      type_slug: 'categories',
+      metadata: { name: 'Tennis Courts', description: 'Professional tennis courts for rent' },
+      created_at: '2024-01-01T00:00:00Z',
+      modified_at: '2024-01-01T00:00:00Z'
+    },
+    { 
+      id: '3', 
+      title: 'Basketball Courts', 
+      slug: 'basketball-courts',
+      type_slug: 'categories',
+      metadata: { name: 'Basketball Courts', description: 'Courts for basketball games' },
+      created_at: '2024-01-01T00:00:00Z',
+      modified_at: '2024-01-01T00:00:00Z'
+    },
+    { 
+      id: '4', 
+      title: 'Hot Tubs', 
+      slug: 'hot-tubs',
+      type_slug: 'categories',
+      metadata: { name: 'Hot Tubs', description: 'Relaxing hot tubs and spas' },
+      created_at: '2024-01-01T00:00:00Z',
+      modified_at: '2024-01-01T00:00:00Z'
+    }
   ]
 
-  const locations = [
-    { id: '1', title: 'Los Angeles', slug: 'los-angeles' },
-    { id: '2', title: 'Miami', slug: 'miami' },
-    { id: '3', title: 'New York', slug: 'new-york' },
-    { id: '4', title: 'Austin', slug: 'austin' }
+  const locations: Location[] = [
+    { 
+      id: '1', 
+      title: 'Los Angeles', 
+      slug: 'los-angeles',
+      type_slug: 'locations',
+      metadata: { city: 'Los Angeles', state: 'California', country: 'USA', featured: true },
+      created_at: '2024-01-01T00:00:00Z',
+      modified_at: '2024-01-01T00:00:00Z'
+    },
+    { 
+      id: '2', 
+      title: 'Miami', 
+      slug: 'miami',
+      type_slug: 'locations',
+      metadata: { city: 'Miami', state: 'Florida', country: 'USA', featured: true },
+      created_at: '2024-01-01T00:00:00Z',
+      modified_at: '2024-01-01T00:00:00Z'
+    },
+    { 
+      id: '3', 
+      title: 'New York', 
+      slug: 'new-york',
+      type_slug: 'locations',
+      metadata: { city: 'New York', state: 'New York', country: 'USA', featured: true },
+      created_at: '2024-01-01T00:00:00Z',
+      modified_at: '2024-01-01T00:00:00Z'
+    },
+    { 
+      id: '4', 
+      title: 'Austin', 
+      slug: 'austin',
+      type_slug: 'locations',
+      metadata: { city: 'Austin', state: 'Texas', country: 'USA', featured: true },
+      created_at: '2024-01-01T00:00:00Z',
+      modified_at: '2024-01-01T00:00:00Z'
+    }
   ]
 
   const [currentFilters, setCurrentFilters] = useState({
@@ -37,35 +102,53 @@ export default function SearchPage() {
     rating: 0
   })
 
-  // Mock data for ListingGrid props
-  const listings = [
+  // Mock data for ListingGrid props - properly typed
+  const listings: Listing[] = [
     {
       id: '1',
       title: 'Luxury Pool Villa',
       slug: 'luxury-pool-villa',
+      type_slug: 'listings',
       metadata: {
-        price: 150,
-        location: 'Los Angeles, CA',
-        rating: 4.8,
-        reviews: 124,
-        image: { imgix_url: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5' },
+        title: 'Luxury Pool Villa',
+        description: 'Beautiful luxury pool with stunning views',
+        price_per_hour: 150,
+        address: 'Los Angeles, CA',
+        max_guests: 8,
+        featured_image: { 
+          url: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5',
+          imgix_url: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5' 
+        },
         amenities: ['Pool', 'Hot Tub', 'WiFi'],
-        capacity: 8
-      }
+        instant_book: true,
+        pet_friendly: false,
+        listing_status: { key: 'active', value: 'Active' }
+      },
+      created_at: '2024-01-01T00:00:00Z',
+      modified_at: '2024-01-01T00:00:00Z'
     },
     {
       id: '2',
       title: 'Modern Tennis Court',
       slug: 'modern-tennis-court',
+      type_slug: 'listings',
       metadata: {
-        price: 75,
-        location: 'Miami, FL',
-        rating: 4.6,
-        reviews: 89,
-        image: { imgix_url: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256' },
+        title: 'Modern Tennis Court',
+        description: 'Professional tennis court with lighting',
+        price_per_hour: 75,
+        address: 'Miami, FL',
+        max_guests: 4,
+        featured_image: { 
+          url: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256',
+          imgix_url: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256' 
+        },
         amenities: ['Tennis Court', 'Parking', 'Lighting'],
-        capacity: 4
-      }
+        instant_book: true,
+        pet_friendly: false,
+        listing_status: { key: 'active', value: 'Active' }
+      },
+      created_at: '2024-01-01T00:00:00Z',
+      modified_at: '2024-01-01T00:00:00Z'
     }
   ]
 
