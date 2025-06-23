@@ -27,20 +27,20 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="text-2xl font-bold">
-              <span className={`${isScrolled ? 'text-swimply-blue' : 'text-white'}`}>
-                Swimply
-              </span>
-            </div>
+            <img 
+              src="/images/logo.svg" 
+              alt="Swimply Logo"
+              className="h-8 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link 
-              href="/find-pool" 
+              href="/listings" 
               className={`font-medium transition-colors ${
                 isScrolled 
-                  ? 'text-gray-700 hover:text-swimply-blue' 
+                  ? 'text-gray-700 hover:text-blue-600' 
                   : 'text-white hover:text-gray-200'
               }`}
             >
@@ -50,7 +50,7 @@ export default function Header() {
               href="/host" 
               className={`font-medium transition-colors ${
                 isScrolled 
-                  ? 'text-gray-700 hover:text-swimply-blue' 
+                  ? 'text-gray-700 hover:text-blue-600' 
                   : 'text-white hover:text-gray-200'
               }`}
             >
@@ -64,7 +64,7 @@ export default function Header() {
               href="/signin" 
               className={`font-medium transition-colors ${
                 isScrolled 
-                  ? 'text-gray-700 hover:text-swimply-blue' 
+                  ? 'text-gray-700 hover:text-blue-600' 
                   : 'text-white hover:text-gray-200'
               }`}
             >
@@ -101,21 +101,21 @@ export default function Header() {
           <div className="md:hidden py-4 bg-white border-t border-gray-200">
             <div className="flex flex-col space-y-4">
               <Link
-                href="/find-pool"
-                className="text-gray-700 hover:text-swimply-blue transition-colors px-2 py-1"
+                href="/listings"
+                className="text-gray-700 hover:text-blue-600 transition-colors px-2 py-1"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Find a pool
               </Link>
               <Link
                 href="/host"
-                className="text-gray-700 hover:text-swimply-blue transition-colors px-2 py-1"
+                className="text-gray-700 hover:text-blue-600 transition-colors px-2 py-1"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Become a Host
               </Link>
               <div className="flex flex-col space-y-2 pt-4 border-t border-gray-200">
-                <Link href="/signin" className="btn-primary">
+                <Link href="/signin" className="btn btn-primary">
                   Sign up
                 </Link>
               </div>
