@@ -28,7 +28,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <img 
-              src="/images/logo.svg" 
+              src="https://cdn.cosmicjs.com/3a164340-5062-11f0-a051-23c10f41277a-Swimply_Horiz_Logo_-_Blue_140x2x.avif" 
               alt="Swimply Logo"
               className="h-8 w-auto"
             />
