@@ -29,14 +29,25 @@ export default function Hero({ locations }: HeroProps) {
   }
 
   return (
-    <section className="relative min-h-[700px] flex items-center">
-      {/* Background Image */}
+    <section className="relative min-h-[700px] flex items-center overflow-hidden">
+      {/* Video Background */}
       <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1920&h=1080&fit=crop&auto=format,compress"
-          alt="Beautiful pool with city view"
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
           className="w-full h-full object-cover"
-        />
+          preload="metadata"
+        >
+          <source src="/videos/hero-background.mp4" type="video/mp4" />
+          {/* Fallback image if video fails to load */}
+          <img
+            src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1920&h=1080&fit=crop&auto=format,compress"
+            alt="Beautiful pool with city view"
+            className="w-full h-full object-cover"
+          />
+        </video>
         <div className="absolute inset-0 hero-gradient"></div>
       </div>
 
