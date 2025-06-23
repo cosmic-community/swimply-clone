@@ -8,6 +8,10 @@ import HostBenefits from '@/components/HostBenefits'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import AsSeenOn from '@/components/AsSeenOn'
+import StepByStep from '@/components/StepByStep'
+import FAQ from '@/components/FAQ'
+import MobileApp from '@/components/MobileApp'
+import PremiumPass from '@/components/PremiumPass'
 import { getListings, getFeaturedLocations } from '@/lib/cosmic'
 
 async function HomePage() {
@@ -25,6 +29,8 @@ async function HomePage() {
         
         <AsSeenOn />
         
+        <StepByStep />
+        
         <TrustAndSafety />
         
         <Suspense fallback={<div className="py-20 text-center">Loading destinations...</div>}>
@@ -38,6 +44,12 @@ async function HomePage() {
         <TestimonialCarousel />
         
         <HostBenefits />
+        
+        <FAQ />
+        
+        <PremiumPass />
+        
+        <MobileApp />
       </main>
       
       <Footer />

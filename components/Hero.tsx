@@ -50,14 +50,14 @@ export default function Hero({ locations }: HeroProps) {
       date: searchData.date,
       guests: searchData.guests
     })
-    window.location.href = `/listings?${searchParams.toString()}`
+    window.location.href = `/search?${searchParams.toString()}`
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900 -mt-20 pt-32">
-      {/* Video Background - moved up to hide black bar */}
-      <div className="absolute inset-0 w-full h-full z-0 -top-10">
-        {/* Fallback background image - only show if video fails or hasn't loaded */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900">
+      {/* Video Background */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        {/* Fallback background image */}
         <div 
           className={`absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat transition-opacity duration-500 ${
             videoLoaded && !videoError ? 'opacity-0' : 'opacity-100'
@@ -67,7 +67,7 @@ export default function Hero({ locations }: HeroProps) {
           }}
         />
         
-        {/* Video element - positioned higher to hide black bar */}
+        {/* Video element */}
         {!videoError && (
           <video
             ref={videoRef}
@@ -75,7 +75,7 @@ export default function Hero({ locations }: HeroProps) {
             muted
             loop
             playsInline
-            className={`absolute w-full h-[110%] object-cover transition-opacity duration-500 -top-5 ${
+            className={`absolute w-full h-full object-cover transition-opacity duration-500 ${
               videoLoaded && !videoError ? 'opacity-100' : 'opacity-0'
             }`}
             preload="auto"
@@ -90,35 +90,35 @@ export default function Hero({ locations }: HeroProps) {
         <div className="absolute inset-0 bg-black/40 z-10" />
       </div>
 
-      {/* Content - Added more top padding to clear navigation */}
-      <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-12">
-        {/* Hero Title - Updated styling */}
+      {/* Content */}
+      <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Hero Title */}
         <div className="mb-8">
-          <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold text-white mb-4 leading-tight tracking-tight">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
             Rent private{' '}
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              Pools
+              Pools,
             </span>
             <br />
             <span className="text-4xl sm:text-5xl md:text-6xl">by the hour.</span>
           </h1>
         </div>
 
-        {/* Stats - Updated layout */}
+        {/* Stats */}
         <div className="mb-12">
-          <div className="inline-flex items-center justify-center flex-wrap gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 text-white text-lg font-medium">
+          <div className="inline-flex items-center justify-center flex-wrap gap-2 bg-white/10 backdrop-blur-sm rounded-full px-8 py-4 text-white text-lg font-medium mb-4">
             <span>Over 4 million</span>
             <div className="flex text-yellow-400">
               <span>⭐⭐⭐⭐⭐</span>
             </div>
             <span>experiences</span>
           </div>
-          <p className="text-white/90 text-lg mt-3 font-medium">
-            hosted by 15,000+ verified hosts and counting! <span className="text-red-400">❤️</span>
+          <p className="text-white/90 text-xl font-medium">
+            hosted by 15,000 hosts and counting! <span className="text-red-400">❤️</span>
           </p>
         </div>
 
-        {/* Search Form - Updated design */}
+        {/* Search Form */}
         <div className="max-w-5xl mx-auto">
           <form onSubmit={handleSearch} className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/20">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
@@ -187,7 +187,7 @@ export default function Hero({ locations }: HeroProps) {
               className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-5 px-8 rounded-xl text-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center"
             >
               <Search className="w-6 h-6 mr-3" />
-              Search Amazing Venues
+              Find a pool
             </button>
           </form>
         </div>

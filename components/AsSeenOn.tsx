@@ -1,4 +1,6 @@
 import WavySection from './WavySection'
+import SpaceTypes from './SpaceTypes'
+import PetSwims from './PetSwims'
 
 export default function AsSeenOn() {
   return (
@@ -74,65 +76,10 @@ export default function AsSeenOn() {
           </div>
 
           {/* Pet Swims Feature */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 mb-16">
-            <div className="flex items-center justify-center mb-4">
-              <span className="bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-bold mr-3">NEW</span>
-              <span className="text-2xl">🐶</span>
-            </div>
-            <h3 className="text-2xl font-bold text-white mb-4">Introducing Pet Swims</h3>
-            <p className="text-white/90 mb-6">
-              Hand curated pools designed for you and your pet to have the best pool day!
-            </p>
-          </div>
+          <PetSwims />
 
           {/* More than just pools */}
-          <div className="mb-16">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-8">
-              More than just pools
-            </h3>
-            <p className="text-xl text-white/90 mb-12">
-              Enjoy a variety of joy filled spaces, always unique, always your own
-            </p>
-            
-            <div className="grid grid-cols-2 md:grid-cols-6 gap-6">
-              <div className="text-center">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-3">
-                  <div className="text-3xl">🏊</div>
-                </div>
-                <p className="text-white font-medium">Pools</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-3">
-                  <div className="text-3xl">🎾</div>
-                </div>
-                <p className="text-white font-medium">Tennis courts</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-3">
-                  <div className="text-3xl">🏓</div>
-                </div>
-                <p className="text-white font-medium">Pickleball courts</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-3">
-                  <div className="text-3xl">🏀</div>
-                </div>
-                <p className="text-white font-medium">Hoops</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-3">
-                  <div className="text-3xl">🏠</div>
-                </div>
-                <p className="text-white font-medium">Indoor havens</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-3">
-                  <div className="text-3xl">🌳</div>
-                </div>
-                <p className="text-white font-medium">Backyards</p>
-              </div>
-            </div>
-          </div>
+          <SpaceTypes />
         </div>
       </div>
     </WavySection>
