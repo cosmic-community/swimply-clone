@@ -54,7 +54,7 @@ export default function Hero({ locations }: HeroProps) {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900 -mt-20 pt-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900 -mt-20 pt-32">
       {/* Video Background - moved up to hide black bar */}
       <div className="absolute inset-0 w-full h-full z-0 -top-10">
         {/* Fallback background image - only show if video fails or hasn't loaded */}
@@ -90,8 +90,8 @@ export default function Hero({ locations }: HeroProps) {
         <div className="absolute inset-0 bg-black/40 z-10" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Content - Added more top padding to clear navigation */}
+      <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-12">
         {/* Hero Title - Updated styling */}
         <div className="mb-8">
           <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold text-white mb-4 leading-tight tracking-tight">
