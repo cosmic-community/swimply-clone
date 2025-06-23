@@ -7,6 +7,7 @@ import TestimonialCarousel from '@/components/TestimonialCarousel'
 import HostBenefits from '@/components/HostBenefits'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import AsSeenOn from '@/components/AsSeenOn'
 import { getListings, getFeaturedLocations } from '@/lib/cosmic'
 
 async function HomePage() {
@@ -22,6 +23,10 @@ async function HomePage() {
       <main>
         <Hero locations={locations} />
         
+        <AsSeenOn />
+        
+        <TrustAndSafety />
+        
         <Suspense fallback={<div className="py-20 text-center">Loading destinations...</div>}>
           <PopularDestinations />
         </Suspense>
@@ -29,8 +34,6 @@ async function HomePage() {
         <Suspense fallback={<div className="py-20 text-center">Loading listings...</div>}>
           <FeaturedListings listings={listings.slice(0, 8)} />
         </Suspense>
-        
-        <TrustAndSafety />
         
         <TestimonialCarousel />
         

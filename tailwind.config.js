@@ -7,7 +7,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        border: '#E5E7EB', // Adding the missing border color
+        border: '#E5E7EB',
+        'swimply-blue': '#4fabdd',
+        'swimply-blue-dark': '#3a8ac7',
+        'swimply-blue-light': '#6bc3e8',
         primary: {
           DEFAULT: '#4FABDD',
           dark: '#3A8AC7',
