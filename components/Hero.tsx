@@ -29,11 +29,11 @@ export default function Hero({ locations }: HeroProps) {
   }
 
   return (
-    <section className="relative min-h-[600px] flex items-center">
+    <section className="relative min-h-[700px] flex items-center">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://imgix.cosmicjs.com/00b3b700-5057-11f0-a051-23c10f41277a-photo-1571902943202-507ec2618e8f-1750699505032.jpg?w=1920&h=1080&fit=crop&auto=format,compress"
+          src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1920&h=1080&fit=crop&auto=format,compress"
           alt="Beautiful pool with city view"
           className="w-full h-full object-cover"
         />
@@ -52,6 +52,11 @@ export default function Hero({ locations }: HeroProps) {
             ,<br />
             by the hour.
           </h1>
+
+          {/* Subtitle */}
+          <p className="text-xl text-white mb-8 opacity-90">
+            Book unique pools, tennis courts, and other private venues near you
+          </p>
 
           {/* Stats */}
           <div className="flex items-center justify-center space-x-2 mb-8 text-white">
@@ -84,6 +89,7 @@ export default function Hero({ locations }: HeroProps) {
                   <option value="pools">Pools 🏊</option>
                   <option value="tennis-courts">Tennis Courts 🎾</option>
                   <option value="basketball-courts">Basketball Courts 🏀</option>
+                  <option value="pickleball-courts">Pickleball Courts 🏓</option>
                 </select>
               </div>
 
@@ -154,7 +160,7 @@ export default function Hero({ locations }: HeroProps) {
 
           {/* How it works link */}
           <div className="mt-8">
-            <a href="#how-it-works" className="text-white hover:text-blue-100 transition-colors underline">
+            <a href="#trust-safety" className="text-white hover:text-blue-100 transition-colors underline">
               How Swimply works
             </a>
           </div>

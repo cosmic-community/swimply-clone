@@ -1,15 +1,16 @@
 import { Suspense } from 'react'
 import Hero from '@/components/Hero'
-import CategorySection from '@/components/CategorySection'
+import PopularDestinations from '@/components/PopularDestinations'
 import FeaturedListings from '@/components/FeaturedListings'
-import HowItWorks from '@/components/HowItWorks'
+import TrustAndSafety from '@/components/TrustAndSafety'
+import TestimonialCarousel from '@/components/TestimonialCarousel'
+import HostBenefits from '@/components/HostBenefits'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import { getCategories, getListings, getFeaturedLocations } from '@/lib/cosmic'
+import { getListings, getFeaturedLocations } from '@/lib/cosmic'
 
 async function HomePage() {
-  const [categories, listings, locations] = await Promise.all([
-    getCategories(),
+  const [listings, locations] = await Promise.all([
     getListings(),
     getFeaturedLocations()
   ])
@@ -21,15 +22,19 @@ async function HomePage() {
       <main>
         <Hero locations={locations} />
         
-        <Suspense fallback={<div className="py-20 text-center">Loading categories...</div>}>
-          <CategorySection categories={categories} />
+        <Suspense fallback={<div className="py-20 text-center">Loading destinations...</div>}>
+          <PopularDestinations />
         </Suspense>
         
         <Suspense fallback={<div className="py-20 text-center">Loading listings...</div>}>
-          <FeaturedListings listings={listings.slice(0, 6)} />
+          <FeaturedListings listings={listings.slice(0, 8)} />
         </Suspense>
         
-        <HowItWorks />
+        <TrustAndSafety />
+        
+        <TestimonialCarousel />
+        
+        <HostBenefits />
       </main>
       
       <Footer />
