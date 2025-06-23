@@ -110,8 +110,8 @@ export default function Hero({ locations }: HeroProps) {
         </div>
 
         {/* Search Form */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <form onSubmit={handleSearch} className="bg-white rounded-2xl p-6 shadow-float">
+        <div className="max-w-4xl mx-auto">
+          <form onSubmit={handleSearch} className="bg-white rounded-2xl p-6 shadow-2xl">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Category</label>
@@ -181,17 +181,6 @@ export default function Hero({ locations }: HeroProps) {
               Search Amazing Venues
             </button>
           </form>
-        </div>
-
-        {/* As Seen On brands */}
-        <div className="mb-16">
-          <p className="text-white/80 text-sm mb-4">As seen on:</p>
-          <div className="flex items-center justify-center space-x-8 opacity-60">
-            <div className="text-white font-bold">CNN</div>
-            <div className="text-white font-bold">ABC</div>
-            <div className="text-white font-bold">NBC</div>
-            <div className="text-white font-bold">Forbes</div>
-          </div>
         </div>
       </div>
     </section>
