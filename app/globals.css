@@ -67,10 +67,6 @@
     aspect-ratio: 1 / 1;
   }
   
-  .aspect-[4/3] {
-    aspect-ratio: 4 / 3;
-  }
-  
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
