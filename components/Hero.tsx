@@ -40,8 +40,7 @@ export default function Hero({ locations }: HeroProps) {
           preload="auto"
           poster="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1920&h=1080&fit=crop&auto=format,compress"
         >
-          <source src="/videos/outdoor-activities.mp4" type="video/mp4" />
-          <source src="/videos/hero-background.mp4" type="video/mp4" />
+          <source src="https://swimply-static.s3.us-east-1.amazonaws.com/hero/v2/desktop-pool.mp4" type="video/mp4" />
         </video>
         {/* Fallback background image */}
         <div 
